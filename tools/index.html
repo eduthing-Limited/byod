@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eduthing tool repo</title>
+    <style>
+        /* Dark mode styling */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        #search-bar {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #333;
+            color: #e0e0e0;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .folder {
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .folder::before {
+            content: '\25B6'; /* Right arrow */
+            display: inline-block;
+            margin-right: 5px;
+            transition: transform 0.2s ease;
+        }
+        .folder.open::before {
+            transform: rotate(90deg); /* Down arrow when open */
+        }
+        .file-list {
+            display: none;
+            padding-left: 20px;
+        }
+        .file-item {
+            padding: 5px 0;
+        }
+        a {
+            color: #4db8ff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .file-size {
+            color: #bbbbbb;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>eduthing tool repo</h1>
+    <input type="text" id="search-bar" placeholder="Search files..." onkeyup="filterFiles()">
+    <ul id="file-list"></ul>
+
+    <script>
+        let allFiles = [];
+
+        async function listFiles() {
+            const apiUrl = "https://minmfcv0i2.execute-api.eu-west-2.amazonaws.com/prod/ListS3Files";
+
+            try {
+                const response = await fetch(apiUrl);
+                const files = await response.json();
+                allFiles = files;
+                displayFiles(files);
+            } catch (error) {
+                console.error("Error fetching files:", error);
+            }
+        }
+
+        function displayFiles(files) {
+            let fileList = document.getElementById("file-list");
+            fileList.innerHTML = "";
+            let folders = {};
+
+            files.forEach(file => {
+                let key = file.Key;
+                let size = file.Size ? (file.Size / 1024).toFixed(2) : "Unknown";
+                if (!key.endsWith("/")) {
+                    let parts = key.split("/");
+                    let fileName = parts.pop();
+                    let folderPath = parts.join("/");
+
+                    if (!folders[folderPath]) {
+                        let folder = document.createElement("div");
+                        folder.textContent = folderPath || "Root";
+                        folder.className = "folder";
+                        folder.onclick = function () {
+                            let fileList = this.nextElementSibling;
+                            fileList.style.display = fileList.style.display === "none" ? "block" : "none";
+                            this.classList.toggle("open");
+                        };
+                        fileList.appendChild(folder);
+
+                        let sublist = document.createElement("ul");
+                        sublist.className = "file-list";
+                        sublist.style.display = "none";
+                        fileList.appendChild(sublist);
+                        folders[folderPath] = sublist;
+                    }
+
+                    let li = document.createElement("li");
+                    li.className = "file-item";
+                    let link = document.createElement("a");
+                    link.href = `https://eduthing-tools.s3.eu-west-2.amazonaws.com/${key}`;
+                    link.textContent = fileName;
+                    link.target = "_blank";
+
+                    let sizeText = document.createElement("span");
+                    sizeText.className = "file-size";
+
+                    li.appendChild(link);
+                    li.appendChild(sizeText);
+                    folders[folderPath].appendChild(li);
+                }
+            });
+        }
+
+        function filterFiles() {
+            const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+            const filteredFiles = allFiles.filter(file => file.Key.toLowerCase().includes(searchTerm));
+            displayFiles(filteredFiles);
+        }
+
+        listFiles();
+    </script>
+
+    <p>Maintained and updated by <a href="mailto:nbendall@eduthing.co.uk">NJ Bendall</a>.</p>
+</body>
+</html>
