@@ -14,16 +14,8 @@
   <header>
     <div class="page">
       <div class="nav">
-        <div class="brand">
           <img src="assets/images/logo4.png" alt="BYOD logo">
-          <h1>BYOD Platform</h1>
-        </div>
-        <div class="nav-links">
-          <a href="#download">Download</a>
-          <a href="#steps">Checklist</a>
-          <a href="#devices">Devices</a>
-          <a class="button secondary" href="#help">Need help?</a>
-        </div>
+          <h1>eduthing BYOD Platform</h1>
       </div>
     </div>
   </header>
@@ -31,24 +23,17 @@
   <main class="page">
     <section class="hero" id="download">
       <div>
-        <span class="badge">SSL inspection readiness</span>
-        <h2>Install the ISP security certificate before you browse.</h2>
-        <p>To keep you safe online, we decrypt HTTPS traffic. Please install the trusted certificate below so your connection stays secure and free of warning messages.</p>
+        <h2>Install your ISP security certificate before you browse.</h2>
+        <p>To keep you safe online, your school decrypt HTTPS traffic. Please install the trusted certificate below so your connection stays secure and free of warning messages.</p>
         <div class="actions">
-          <a class="button primary" href="ns.crt" download>Download certificate (.crt)</a>
-          <a class="button secondary" href="netsweeper.pem" download>Download certificate (.pem)</a>
+          <select>
+            <option value="ns.crt">Download certificate (.crt)</option>
+            <option value="netsweeper.pem">Download certificate (.pem)</option>
+          </select>
         </div>
         <p class="inline-note">Pick <strong>.crt</strong> for Windows/ChromeOS/Android and <strong>.pem</strong> for iOS/iPadOS/macOS.</p>
       </div>
-      <div class="card">
-        <p style="margin: 0 0 10px; color: var(--muted);">Before you start</p>
-        <ul class="steps">
-          <li>Connect to your school or ISP Wi‑Fi.</li>
-          <li>Keep this tab open while you install.</li>
-          <li>Restart your browser once the certificate is added.</li>
-        </ul>
-        <div class="pill" style="margin-top: 12px; display: inline-flex;">Approximate time: 2–3 minutes</div>
-      </div>
+
     </section>
 
     <section class="section" id="steps">
@@ -78,62 +63,10 @@
       <h3>Device-specific instructions</h3>
       <p>Choose your platform and follow the steps carefully. Screens may vary slightly by version.</p>
       <div class="timeline">
-        <div class="step">
-          <span class="badge">Windows</span>
-          <div>
-            <strong>Use the .crt file</strong>
-            <ol class="steps">
-              <li>Double-click <strong>ns.crt</strong> and select <em>Install Certificate</em>.</li>
-              <li>Pick <em>Local Machine</em> and choose <em>Place all certificates in the following store</em>.</li>
-              <li>Select <em>Trusted Root Certification Authorities</em> → Finish → confirm prompts.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="step">
-          <span class="badge">macOS</span>
-          <div>
-            <strong>Use the .pem file</strong>
-            <ol class="steps">
-              <li>Open <strong>netsweeper.pem</strong> and add it to <em>login</em> Keychain.</li>
-              <li>Double-click the certificate in Keychain Access and set <em>When using this certificate</em> to <em>Always Trust</em>.</li>
-              <li>Close the window and enter your password to apply.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="step">
-          <span class="badge">iOS / iPadOS</span>
-          <div>
-            <strong>Use the .pem file</strong>
-            <ol class="steps">
-              <li>Download <strong>netsweeper.pem</strong> → tap <em>Allow</em> to add the profile.</li>
-              <li>Go to <em>Settings</em> → <em>Profile Downloaded</em> → <em>Install</em>.</li>
-              <li>Navigate to <em>Settings</em> → <em>General</em> → <em>About</em> → <em>Certificate Trust Settings</em> and enable full trust.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="step">
-          <span class="badge">Android</span>
-          <div>
-            <strong>Use the .crt file</strong>
-            <ol class="steps">
-              <li>Download <strong>ns.crt</strong> and open it from the notification or Downloads.</li>
-              <li>When prompted, name it (e.g., ISP SSL) and select <em>VPN and apps</em> or <em>Wi-Fi</em> for credential use.</li>
-              <li>Confirm install. If requested, set your screen lock first.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="step">
-          <span class="badge">ChromeOS</span>
-          <div>
-            <strong>Use the .crt file</strong>
-            <ol class="steps">
-              <li>Open <strong>chrome://settings/certificates</strong> → <em>Authorities</em> → <em>Import</em>.</li>
-              <li>Select <strong>ns.crt</strong> and trust for <em>Identify websites</em> and <em>Identify mail users</em>.</li>
-              <li>Save and restart Chrome.</li>
-            </ol>
-          </div>
-        </div>
-      </div>
+        <a class="button primary" href="http://byod.eduthing.co.uk/install/windows" download>Windows</a>
+        <a class="button primary" href="http://byod.eduthing.co.uk/install/chromebook" download>Chromebook</a>
+        <a class="button primary" href="http://byod.eduthing.co.uk/install/ios" download>iOS (iPad/iPhone)</a>
+        <a class="button primary" href="http://byod.eduthing.co.uk/install/android" download>Android</a>
     </section>
 
     <section class="cta" id="help">
@@ -142,24 +75,13 @@
         <p>After installation, browse to a familiar HTTPS site. If you see a padlock and no warnings, SSL decryption is ready. Clear cache or restart your device if prompts persist.</p>
       </div>
       <div class="actions">
-        <a class="button primary" href="ns.crt" download>Download .crt again</a>
-        <a class="button secondary" href="netsweeper.pem" download>Download .pem again</a>
+        <a class="button primary" href="https://google.com" download>Google Search</a>
+        <a class="button secondary" href="https://bbc.com" download>BBC News</a>
       </div>
     </section>
 
     <div class="footer">
-      <div>
-        <strong>Need support?</strong>
-        <p style="margin: 6px 0 0;">If you still see certificate warnings, restart your browser and re-import the file. Contact your IT team for proxy or Wi-Fi settings.</p>
-      </div>
-      <div>
-        <strong>Why this is required</strong>
-        <p style="margin: 6px 0 0;">The certificate lets our ISP decrypt and scan encrypted traffic for safety before it reaches you.</p>
-      </div>
-      <div>
-        <strong>Privacy first</strong>
-        <p style="margin: 6px 0 0;">Inspection is limited to security purposes. Banking and private data remain protected by policy.</p>
-      </div>
+      <p>&copy; 2025 eduthing. All rights reserved.</p>
     </div>
   </main>
 </body>
