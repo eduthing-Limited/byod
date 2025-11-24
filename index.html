@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
+  <div class="banner" role="status" aria-live="polite">
+    <strong>Your connection</strong>
+    <div class="details">
+      <span id="device-label">Detecting device…</span>
+      <span aria-hidden="true">•</span>
+      <span id="isp-label">Detecting ISP…</span>
+    </div>
+  </div>
   <main class="page">
     <section class="hero" id="download">
       <div>
@@ -44,5 +52,34 @@
       <p>&copy; 2025 eduthing. All rights reserved.</p>
     </div>
   </main>
+  <script>
+    (function () {
+      const deviceEl = document.getElementById("device-label");
+      const ispEl = document.getElementById("isp-label");
+
+      const detectDevice = () => {
+        const ua = navigator.userAgent || "Unknown";
+        if (/Windows/i.test(ua)) return "Windows device";
+        if (/Macintosh|Mac OS X/i.test(ua)) return "Mac device";
+        if (/iPhone|iPad|iPod/i.test(ua)) return "iOS device";
+        if (/Android/i.test(ua)) return "Android device";
+        if (/CrOS/i.test(ua)) return "Chromebook";
+        if (/Linux/i.test(ua)) return "Linux device";
+        return "Unknown device";
+      };
+
+      deviceEl.textContent = `Device: ${detectDevice()}`;
+
+      fetch("https://ipapi.co/json/")
+        .then((response) => response.ok ? response.json() : null)
+        .then((data) => {
+          if (!data || !data.org) throw new Error("No ISP info");
+          ispEl.textContent = `ISP: ${data.org}`;
+        })
+        .catch(() => {
+          ispEl.textContent = "ISP: Unavailable";
+        });
+    })();
+  </script>
 </body>
 </html>

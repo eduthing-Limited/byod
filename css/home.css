@@ -48,6 +48,32 @@ header {
   border-bottom: 1px solid var(--panel-strong);
 }
 
+.banner {
+  margin: 0 -24px;
+  padding: 12px 24px;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(99, 102, 241, 0.18));
+  border: 1px solid var(--panel-strong);
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.banner strong {
+  color: var(--accent);
+}
+
+.banner .details {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -124,14 +150,17 @@ header {
 }
 
 .button.lgfl {
-  background: var(--panel);
-  border-color: var(--panel-strong);
-  color: var(--text);
+  background: linear-gradient(120deg, #ef4444, #b91c1c);
+  border-color: #7f1d1d;
+  color: #0b1021;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
 }
 
 .button.lgfl:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  transform: translateY(-1px);
+  border-color: #ef4444;
+  color: #0b1021;
+  box-shadow: 0 14px 36px rgba(239, 68, 68, 0.3);
 }
 
 .hero {
