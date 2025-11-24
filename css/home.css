@@ -149,17 +149,56 @@ header {
   color: var(--accent);
 }
 
+.button.sbb {
+  background: linear-gradient(120deg, #6366f1, #2c2e99);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+}
+
+.button.sbb:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 36px rgba(99, 102, 241, 0.3);
+}
+
 .button.lgfl {
-  background: linear-gradient(120deg, #ef4444, #b91c1c);
+  background: linear-gradient(120deg, #ef4444, #3a0505);
   border-color: #7f1d1d;
-  color: #0b1021;
+  color: #ffffff;
   box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
 }
 
 .button.lgfl:hover {
   transform: translateY(-1px);
   border-color: #ef4444;
-  color: #0b1021;
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(239, 68, 68, 0.3);
+}
+
+.button.rm-education {
+  background: linear-gradient(120deg, #43df7c, #093017);
+  border-color: #1f9e3d;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
+}
+
+.button.rm-education:hover {
+  transform: translateY(-1px);
+  border-color: #4ade80;
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(239, 68, 68, 0.3);
+}
+
+.button.exa {
+  background: linear-gradient(120deg, #1e776b, #07312c);
+  border-color: #15685d;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
+}
+
+.button.exa:hover {
+  transform: translateY(-1px);
+  border-color: #15685d;
+  color: #ffffff;
   box-shadow: 0 14px 36px rgba(239, 68, 68, 0.3);
 }
 

@@ -23,10 +23,31 @@
       <h3>Download your ISP certificate</h3>
       <p>Choose your school's ISP and follow the steps carefully. If you do not know your ISP, please ask the school office or IT department.</p>
       <div class="timeline">
-        <a class="button primary" href="cert/netsweeper.crt" download>SBB Netsweeper</a>
-        <a class="button lgfl" href="cert/schoolprotect.crt" download>LGfL SchoolProtect</a>
-        <a class="button secondary" href="cert/rm-education.crt" download>RM Education</a>
-        <a class="button secondary" href="cert/exa.crt" download>Exa</a>
+        <a class="button sbb" href="cert/netsweeper.crt" download>TalkStraight</a>
+        <a class="button lgfl" href="cert/schoolprotect.crt" download>LGfL</a>
+        <a class="button rm-education" href="cert/rm-education.crt" download>RM Education</a>
+        <a class="button exa" href="cert/exa.crt" download>Exa Networks</a>
+    </section>
+    
+    <section class="section" id="devices">
+      <h3>How to Install</h3>
+      <p>Follow the steps below carefully. If you require assistance, please contact eduthing.</p>
+      <h4>Windows</h4>
+      <ol>
+        <li>Download the certificate file above.</li>
+        <li>Locate the downloaded certificate file (usually in the Downloads folder).</li>
+        <img src="../images/windows1.png" alt="Windows Certificate Download Folder">
+        <li>Open the Start menu and search for "Manage Computer Certificates".</li>
+        <img src="../images/windows3.png" alt="Manage Computer Certificates">
+        <li>In the Certificates window, expand the "Trusted Root Certification Authorities" folder.</li>
+        <img src="../images/windows2.png" alt="Windows Downloads Folder">
+        <li>Right-click on the "Certificates" folder and select "All Tasks" > "Import".</li>
+        <li>Browse to the location of the downloaded certificate file and select it.</li>
+        <img src="../images/windows5.png" alt="Import Certificate">
+        <li>Follow the prompts to import the downloaded certificate file.</li>
+        <img src="../images/windows6.png" alt="Certificate Import Wizard">
+        <li>Once the import is complete, restart your web browser to apply the changes.</li>
+      </ol>
     </section>
 
     <section class="cta" id="help">
@@ -35,7 +56,8 @@
         <p>After installation, browse to a familiar HTTPS site. If you see a padlock and no warnings, SSL decryption is ready. Clear cache or restart your device if prompts persist.</p>
       </div>
       <div class="actions">
-        <a class="button primary" href="https://google.com" download>Google Search</a>
+        <a class="button primary" href="https://eduthing.co.uk" download>eduthing</a>
+        <a class="button secondary" href="https://google.com" download>Google</a>
         <a class="button secondary" href="https://bbc.com" download>BBC News</a>
       </div>
     </section>
