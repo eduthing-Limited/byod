@@ -123,6 +123,17 @@ header {
   color: var(--accent);
 }
 
+.button.lgfl {
+  background: var(--panel);
+  border-color: var(--panel-strong);
+  color: var(--text);
+}
+
+.button.lgfl:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
