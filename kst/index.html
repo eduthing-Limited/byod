@@ -31,9 +31,9 @@
       <h3>Device-specific instructions</h3>
       <p>Choose your platform and follow the steps carefully. Screens may vary slightly by version.</p>
       <div class="timeline">
-        <a class="button primary" href="https://eduthing-byod-test.netlify.app/install/windows.html" download>Windows</a>
-        <a class="button primary" href="https://eduthing-byod-test.netlify.app/install/chromebook.html" download>Chromebook</a>
-        <a class="button primary" href="https://eduthing-byod-test.netlify.app/install/ios.html" download>iOS (iPad/iPhone)</a>
+        <a class="button primary" href="install/windows.html" download>Windows</a>
+        <a class="button primary" href="install/chromebook.html" download>Chromebook</a>
+        <a class="button primary" href="install/ios.html" download>iOS (iPad/iPhone)</a>
     </section>
 
     <section class="cta" id="help">
@@ -70,15 +70,7 @@
 
       deviceEl.textContent = `Device: ${detectDevice()}`;
 
-      fetch("https://ipapi.co/json/")
-        .then((response) => response.ok ? response.json() : null)
-        .then((data) => {
-          if (!data || !data.org) throw new Error("No ISP info");
-          ispEl.textContent = `ISP: ${data.org}`;
-        })
-        .catch(() => {
-          ispEl.textContent = "ISP: Unavailable";
-        });
+      ispEl.textContent = "Filtering: Smoothwall (KST)";
     })();
   </script>
 </body>
